@@ -1,0 +1,236 @@
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 480px) { @content; }
+  }
+}
+
+.heroBlock {
+    position: relative;
+    width: 100%;
+    max-width: 1160px;
+    height: 614px;
+    background: url('../../assets/bg.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 25px auto 0px auto;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include respond-to(small) {
+      background: url('../../assets/bg-mob.svg');
+      background-size: cover;
+      height: calc(100vw * (550 / 320));
+      margin: 0 auto;
+    }
+  }
+  
+  .heroContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 23px;
+    left: 13px;
+  
+    img {
+      width: 188px;
+    }
+
+    @include respond-to(small) {
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        width: 118px;
+      }
+    }
+  }
+  
+  .menuButton {
+    position: absolute;
+    top: 0px;
+    right: 17px;
+    background: white;
+    border: none;
+    width: 185px;
+    height: 68px;
+    border-radius: 100px;
+    font-size: 20px;
+    cursor: pointer;
+
+    @include respond-to(small) {
+      width: 50px;
+      height: 20px;
+      background: none;
+      top: 20px;
+      right: 10px;
+      font-size: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+
+      }
+    }
+  }
+  
+  .heroContent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 24px;
+
+    @include respond-to(small) {
+      flex-direction: column;
+    }
+  }
+  
+  .textContent {
+    padding-top: 100px;
+    max-width: 400px;
+    z-index: 10;
+    h1 {
+      font-size: 65px;
+      line-height: 65px;
+      color: white;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+    }
+  
+    p {
+        font-size: 20px;
+        color: white;
+        font-weight: 400;
+    }
+
+    @include respond-to(small) {
+      padding-top: 70px;
+      text-align: center;
+      max-width: 300px;
+      h1 {
+        text-align: center;
+        font-size: calc(1rem + 6.125vw);
+        line-height: calc(1rem + 5.125vw);
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .heroImage {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .blurredBox {
+    position: absolute;
+    box-sizing: border-box;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-25%);
+    width: 303px;
+    height: 257px;
+    background: #FFFDFD1A;
+    backdrop-filter: blur(40px);
+    border-radius: 30px;
+    padding: 20px 20px 27px 20px;
+    z-index: 2;
+
+    @include respond-to(small) {
+      display: none;
+    }
+  }
+  
+  .guideBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .guideTitle {
+      font-size: 16px;
+      font-weight: 400;
+      border: 1px solid white;
+      border-radius: 100px;
+      color: white;
+      max-width: fit-content;
+      padding: 10px 22.5px;
+    }
+  
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      color: white;
+    }
+  
+    .icons {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    @include respond-to(small) {
+      // margin-top: 300px;
+    }
+  }
+
+  .star {
+    margin-left: -10px;
+    margin-top: -95px;
+    width: 105px;
+    height: 105px;
+  }
+
+  .ligtning {
+    margin-top: -70px;
+    margin-right: -70px;
+    width: 166px;
+    height: 166px;
+  }
+  
+  .guideButton {
+    position: absolute;
+    width: 313px;
+    height: 68px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: none;
+    border-radius: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.2s ease 0s;
+    
+    &:hover {
+        color: white;
+        background-color: black;
+    }
+
+    @include respond-to(small) {
+      bottom: auto;
+      top: 35%;
+      width: 80%;
+      height: calc(100vw * (63 / 400));
+      max-height: 68px;
+      font-size: 14px;
+    }
+  }
